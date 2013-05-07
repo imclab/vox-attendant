@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public

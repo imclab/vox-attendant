@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,8 +21,6 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<?xml version="1.0"?>
-
 
 <%@ include file="../imports.jsp" %>
 <%@ taglib uri="autoattendant" prefix="attendant" %>

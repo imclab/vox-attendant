@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
-
-<taglib>
-   <tlibversion>1.0</tlibversion>
-   <jspversion>1.1</jspversion>
-   <shortname>attendant</shortname>
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+   <tlib-version>1.0</tlib-version>
+   <short-name>attendant</short-name>
    <uri>http://www.voxattendant.org/taglib/voxattendant.jar</uri>
-   <info>Tag library for AutoAttendant</info>
    <tag>
       <name>audio</name>
-      <tagclass>org.voxattendant.taglib.AudioTag</tagclass>
-      <bodycontent>jsp</bodycontent>
-      <info>Audio formatting tag</info>
+      <tag-class>org.voxattendant.taglib.AudioTag</tag-class>
+      <body-content>JSP</body-content>
+    <attribute>
+    	<name>id</name>
+    	<required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
 	<attribute>
          <name>audiodir</name>
          <required>false</required>
@@ -20,16 +22,19 @@
       </attribute>
       <attribute>
          <name>name</name>
-         <required>true</required>
+         <required>false</required>
          <rtexprvalue>true</rtexprvalue>
       </attribute>
-	
+	  <attribute>
+	  	<name>type</name>
+	  	<required>false</required>
+	  	<rtexprvalue>true</rtexprvalue>
+	  </attribute>
    </tag>
    <tag>
       <name>playAudio</name>
-      <tagclass>org.voxattendant.taglib.PlayAudioTag</tagclass>
-      <bodycontent>jsp</bodycontent>
-      <info>PlayAudio formatting tag</info>
+      <tag-class>org.voxattendant.taglib.PlayAudioTag</tag-class>
+      <body-content>JSP</body-content>
       <attribute>
          <name>audiodir</name>
          <required>false</required>
@@ -43,15 +48,13 @@
    </tag>
    <tag>
       <name>digitsGrammar</name>
-      <tagclass>org.voxattendant.taglib.DigitsGrammarTag</tagclass>
-      <bodycontent>empty</bodycontent>
-      <info>Digits Grammar Generation tag</info>
+      <tag-class>org.voxattendant.taglib.DigitsGrammarTag</tag-class>
+      <body-content>empty</body-content>
    </tag>
    <tag>
       <name>vxmlEvent</name>
-      <tagclass>org.voxattendant.taglib.VxmlEventTag</tagclass>
-      <bodycontent>empty</bodycontent>
-      <info>Vxml Event Generation tag</info>
+      <tag-class>org.voxattendant.taglib.VxmlEventTag</tag-class>
+      <body-content>empty</body-content>
       <attribute>
          <name>type</name>
          <required>true</required>
@@ -75,9 +78,8 @@
    </tag>
    <tag>
       <name>navigate</name>
-      <tagclass>org.voxattendant.taglib.NavigateTag</tagclass>
-      <bodycontent>empty</bodycontent>
-      <info>Navigate tag</info>
+      <tag-class>org.voxattendant.taglib.NavigateTag</tag-class>
+      <body-content>empty</body-content>
       <attribute>
          <name>value</name>
          <required>true</required>
@@ -96,9 +98,8 @@
    </tag>
    <tag>
       <name>alphabetlink</name>
-      <tagclass>org.voxattendant.taglib.AlphabetLinkTag</tagclass>
-      <bodycontent>empty</bodycontent>
-      <info>Navigate tag</info>
+      <tag-class>org.voxattendant.taglib.AlphabetLinkTag</tag-class>
+      <body-content>empty</body-content>
       <attribute>
          <name>linked</name>
          <required>false</required>
@@ -107,9 +108,8 @@
    </tag>
    <tag>
       <name>displayText</name>
-      <tagclass>org.voxattendant.taglib.DisplayTextTag</tagclass>
-      <bodycontent>empty</bodycontent>
-      <info>Format a text string</info>
+      <tag-class>org.voxattendant.taglib.DisplayTextTag</tag-class>
+      <body-content>empty</body-content>
       <attribute>
          <name>format</name>
          <required>true</required>

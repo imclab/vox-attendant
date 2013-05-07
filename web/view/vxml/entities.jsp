@@ -1,3 +1,4 @@
+<%@ include file="header.jsp" %>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,7 +21,7 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<%@ include file="header.jsp" %>
+
 <%
 String confRejectionThreshold = Config.getString("confRejectionThreshold");
 String maxNBest = Config.getString("maxNBest");
@@ -70,7 +71,7 @@ if(entityBeans == null) {
         <audio src="<%=audioDir%>/051.wav">
             There are several groups within...
         </audio>
-        <attendant:audio type="entity" id="<%=parent.getEntityId()%>" audiodir="<%=entityAudioDir%>">
+        <attendant:audio type="entity" audiodir="<%=entityAudioDir%>">
             <%=parent.getName()%>
         </attendant:audio>
         <audio src="<%=audioDir%>/052.wav">
@@ -101,7 +102,7 @@ if(entityBeans == null) {
             for(int i = 0; i < entityBeans.size(); i ++) {
             entityBean = (EntityBean)entityBeans.get(i);
             %>
-            <attendant:audio type="entity" id="<%=entityBean.getEntityId()%>" audiodir="<%=entityAudioDir%>">
+            <attendant:audio type="entity" audiodir="<%=entityAudioDir%>">
                 <%=entityBean.getName()%>
             </attendant:audio>
             <audio src="<%=voxfxAudioDir%>/silence0_5.wav"/>
@@ -126,7 +127,7 @@ if(entityBeans == null) {
             <audio src="<%=audioDir%>/051.wav">
                 There are several groups within...
             </audio>
-            <attendant:audio type="entity" id="<%=parent.getEntityId()%>" audiodir="<%=entityAudioDir%>">
+            <attendant:audio type="entity" audiodir="<%=entityAudioDir%>">
                 <%=parent.getName()%>
             </attendant:audio>
             <audio src="<%=audioDir%>/052.wav">
@@ -138,7 +139,7 @@ if(entityBeans == null) {
             for(int i = 0; i < entityBeans.size(); i ++) {
             entityBean = (EntityBean)entityBeans.get(i);
             %>
-            <attendant:audio type="entity" id="<%=entityBean.getEntityId()%>" audiodir="<%=entityAudioDir%>">
+            <attendant:audio type="entity" audiodir="<%=entityAudioDir%>">
                 <%=entityBean.getName()%>
             </attendant:audio>
             <audio src="<%=voxfxAudioDir%>/silence0_5.wav"/>
@@ -156,7 +157,7 @@ if(entityBeans == null) {
             type="noinput"
             promptSet="<%=promptSet%>"
             reprompt="true"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         <%
         promptSet = audioDir + "/041.wav,"  + voxfxAudioDir + "/silence0_5.wav;" +
                 audioDir + "/043.wav," + audioDir + "/191.wav";
@@ -165,7 +166,7 @@ if(entityBeans == null) {
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="true"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         <%
         promptSet = voxfxAudioDir + "/helpin.wav," + audioDir;
         if(parent == null)
@@ -180,7 +181,7 @@ if(entityBeans == null) {
             reprompt="true"/>
         <attendant:vxmlEvent
             type="repeat"
-            promptSet="<%=audioDir+"/033.wav"%>"
+            promptSet="<%=audioDir+\"/033.wav\"%>"
             reprompt="false"
             finalURI="#listing"/>
         <filled>
@@ -188,7 +189,7 @@ if(entityBeans == null) {
             <var name="MyArray" expr="application.lastresult$"/>
             <log expr="'LENGTH = ' + MyArray.length"/>
             
-            <if cond="MyArray.length== 1">
+            <if cond="MyArray.length == 1">
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'"/>
                 
@@ -196,7 +197,7 @@ if(entityBeans == null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-                <elseif cond="MyArray.length== 2"/>
+                <elseif cond="MyArray.length == 2"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');' 
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'"/>
@@ -206,7 +207,7 @@ if(entityBeans == null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-                <elseif cond="MyArray.length= 3"/>
+                <elseif cond="MyArray.length == 3"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  	
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
@@ -217,11 +218,11 @@ if(entityBeans == null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-                <elseif cond="MyArray.length= 4"/>
+                <elseif cond="MyArray.length == 4"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'"/>
                 
                 <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.mainmenu + ';'
@@ -230,11 +231,11 @@ if(entityBeans == null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-                <elseif cond="MyArray.length= 5"/>
+                <elseif cond="MyArray.length == 5"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'
                 + MyArray[4].interpretation.mainmenu + '(' + MyArray[4].confidence + ');'"/>
                 
@@ -245,11 +246,11 @@ if(entityBeans == null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-                <elseif cond="MyArray.length= 6"/>
+                <elseif cond="MyArray.length == 6"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  	
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'
                 + MyArray[4].interpretation.mainmenu + '(' + MyArray[4].confidence + ');'
                 + MyArray[5].interpretation.mainmenu + '(' + MyArray[5].confidence + ');'"/>
@@ -298,19 +299,19 @@ promptSet = audioDir + "/striva-og-3.wav," + voxfxAudioDir + "/waiting4_0.wav;" 
     type="noinput"
     promptSet="<%=promptSet%>"
     reprompt="false"
-    finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+    finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
 
 <attendant:vxmlEvent
     type="nomatch"
     promptSet="<%=promptSet%>"
     reprompt="false"
-    finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+    finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
 
 <attendant:vxmlEvent
     type="help"
     promptSet="<%=promptSet%>"
     reprompt="false"
-    finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+    finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
 
 <filled>
     <assign name="nbest" expr="selection"/>
@@ -339,19 +340,19 @@ promptSet = audioDir + "/striva-og-3.wav," + voxfxAudioDir + "/waiting4_0.wav;" 
             type="noinput"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <attendant:vxmlEvent
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <attendant:vxmlEvent
             type="help"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <filled>
             <if cond="selection == 'entity-7'">
@@ -390,19 +391,19 @@ promptSet = audioDir + "/striva-og-3.wav," + voxfxAudioDir + "/waiting4_0.wav;" 
             type="noinput"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <attendant:vxmlEvent
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <attendant:vxmlEvent
             type="help"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL(appDir+"/MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(appDir+\"/MainController?reqState=vxmlShowOperator\") %>"/>
         
         <filled>
             <assign name="nbest" expr="selection"/>

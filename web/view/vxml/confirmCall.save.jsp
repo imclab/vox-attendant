@@ -1,3 +1,4 @@
+<%@ include file="header.jsp" %>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,7 +21,7 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<%@ include file="header.jsp" %>
+
 <%
    CalleeBean calleeBean = (CalleeBean)request.getAttribute("calleeBean");
    String activeId = (String)request.getAttribute("activeId");
@@ -60,7 +61,7 @@
             type="noinput"
             promptSet="<%=promptSet%>"
             reprompt="true"
-            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(\"MainController?reqState=vxmlShowOperator\") %>"/>
       <%
          promptSet = audioDir + "/041.wav," + voxfxAudioDir + "/silence1_0.wav;" +
                       audioDir + "/043.wav," + audioDir + "/191.wav";
@@ -69,7 +70,7 @@
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="true"
-            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(\"MainController?reqState=vxmlShowOperator\") %>"/>
       <%
          promptSet = voxfxAudioDir + "/helpin.wav," +
                      audioDir + "/121.wav," +
@@ -86,7 +87,7 @@
       %>
       <attendant:vxmlEvent
             type="cancel"
-            promptSet="<%=audioDir+"/113.wav"%>"
+            promptSet="<%=audioDir+\"/113.wav\"%>"
             reprompt="false"
             finalURI="<%=finalURL%>"/>
 
@@ -124,7 +125,7 @@
             type="noinput"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(\"MainController?reqState=vxmlShowOperator\") %>"/>
       <%
          promptSet = audioDir + "/041.wav,"  + audioDir + "/142.wav;" +
                       audioDir + "/043.wav," + audioDir + "/191.wav";
@@ -133,7 +134,7 @@
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowOperator") %>"/>
+            finalURI="<%= response.encodeURL(\"MainController?reqState=vxmlShowOperator\") %>"/>
       <%
          promptSet = voxfxAudioDir + "/helpin.wav," +
                      audioDir + "/141.wav," + audioDir + "/142.wav," +
@@ -150,7 +151,7 @@
       %>
       <attendant:vxmlEvent
             type="cancel"
-            promptSet="<%=audioDir+"/113.wav"%>"
+            promptSet="<%=audioDir+\"/113.wav\"%>"
             reprompt="false"
             finalURI="<%=finalURL%>"/>
 
@@ -211,7 +212,7 @@
             type="nomatch"
             promptSet="<%=promptSet%>"
             reprompt="false"
-            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowMainMenu") %>"/>
+            finalURI="<%= response.encodeURL("MainController?reqState=vxmlShowMainMenu\") %>"/>
       <%
          promptSet = voxfxAudioDir + "/helpin.wav," +
                      audioDir + "/167.wav," +
@@ -230,7 +231,7 @@
       %>
       <attendant:vxmlEvent
             type="cancel"
-            promptSet="<%=audioDir+"/153.wav"%>"
+            promptSet="<%=audioDir+\"/153.wav\"%>"
             reprompt="false"
             finalURI="<%=finalURL%>"/>
 

@@ -1,3 +1,4 @@
+<%@ include file="header.jsp" %>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,7 +21,7 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<%@ include file="header.jsp" %>
+
 
 <var name="playedDirections" expr="false"/>
 <var name="playedRepeat" expr="false"/>

@@ -392,6 +392,9 @@ public class ContactController extends BaseController {
         }
         // add the new contact
         // update database
+        System.out.println("********* ATTEMPTING TO ADD **********");
+        System.out.println(contact.toString());
+        System.out.println("**************************************");
         isSuccess = ContactManager.addContact(contact);
         
         //Was voicemail previously enabled?

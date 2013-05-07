@@ -95,7 +95,17 @@ public class AudioTag implements Tag {
    public String getType() {
       return type;
    }
-
+   /*
+   protected int id;
+   
+   public void setId(int id) {
+	   this.id = id;
+   }
+   
+   public int getId() {
+	   return id;
+   }
+*/
    // Attribute: id
    protected String name;
 

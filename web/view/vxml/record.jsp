@@ -1,3 +1,4 @@
+<%@ include file="rec_header.jsp" %>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,7 +21,7 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<%@ include file="rec_header.jsp" %>
+
 <%
 String audioName = (String)request.getAttribute("audioName");
 String audioTTS = (String)request.getAttribute("audioTTS");

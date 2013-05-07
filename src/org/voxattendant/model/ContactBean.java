@@ -241,4 +241,17 @@ public class ContactBean extends CustomizableBean {
    {
        System.out.println(ContactBean.generateDtmfExtension("3124232"));
    }
+
+@Override
+public String toString() {
+	return "ContactBean [contactId=" + contactId + ", firstname=" + firstname
+			+ ", lastname=" + lastname + ", nickname=" + nickname + ", note="
+			+ note + ", distinctInfo=" + distinctInfo + ", departmentName="
+			+ departmentName + ", active=" + active + ", voicemailEnabled="
+			+ voicemailEnabled + ", phoneticCode=" + phoneticCode
+			+ ", workPhoneNumber=" + workPhoneNumber + ", mobilePhoneNumber="
+			+ mobilePhoneNumber + ", homePhoneNumber=" + homePhoneNumber
+			+ ", extension=" + extension + ", altSpellings=" + altSpellings
+			+ ", audioName=" + audioName + ", email=" + email + "]";
+}
 }

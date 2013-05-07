@@ -453,8 +453,9 @@ public class MainController extends BaseController {
             }
         } else {
             // find all the matching contact beans
-            List contactBeans = findContactBeanByIds(contactBeanList,
-                    contactIds);
+        	System.out.println("FOOOOOOOOOOOOOOOOOOOOOO "+ contactBeanList.size());
+        	System.out.println("FOOOOOOOOOOOOOOOOOOOOOO "+ contactIds.length);
+            List contactBeans = findContactBeanByIds(contactBeanList, contactIds);
             
             if (contactBeans.size() > MaxAllowableMatches) {
                 req.setAttribute("failedToProcess", "true");
@@ -851,8 +852,13 @@ public class MainController extends BaseController {
             
             String id = stripPrefix(contactId, prefix);
             // Skips all unknown items...
-            if (id != null)
-                ids.add(id);
+            if (id == null)
+            	continue;
+            
+            //Skip dupes
+            if (!ids.contains(id)) {
+            	ids.add(id);	
+            }
         }
         String[] array = new String[ids.size()];
         ids.copyInto(array);

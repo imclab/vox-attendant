@@ -137,6 +137,11 @@
                   <input type="hidden" name="note" value="<%=contact.getNote()%>">
                   <input type="hidden" name="workPhoneNumber" value="<%=contact.getWorkPhoneNumber()%>">
                   <input type="hidden" name="mobilePhoneNumber" value="<%=contact.getMobilePhoneNumber()%>">
+                  <input type="hidden" name="homePhoneNumber" value="<%=contact.getHomePhoneNumber()%>">
+                  <input type="hidden" name="extension" value="<%=contact.getExtension()%>">
+                  <input type="hidden" name="email" value="<%=contact.getEmail()%>">
+                  <input type="hidden" name="audioName" value="<%=contact.getAudioName()%>">
+                  
                   <% if(contact.isActive()) { %>
                      <input type="hidden" name="isActive" value="true">
                   <% } else { %>
@@ -150,7 +155,7 @@
 
          <%    if(contact.getContactId() > 0) { %>
                   <font class="plaintext">
-                  <attendant:playAudio type="distinctinfo" id="<%=contact.getContactId()%>" audiodir="<%=contactAudioDir%>">
+                  <attendant:playAudio  name="<%=contact.getAudioName()%>" audiodir="<%=contactAudioDir%>">
                      play
                   </attendant:playAudio>
                   </font>

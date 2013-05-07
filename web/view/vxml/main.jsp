@@ -1,3 +1,4 @@
+<%@ include file="header.jsp" %>
 <%--
 /*
  * The contents of this file are subject to the Mozilla Public
@@ -20,7 +21,7 @@
  * ICOA Inc. <info@icoa.com> (http://icoa.com)
  */
 --%>
-<%@ include file="header.jsp" %>
+
 <%
 String confRejectionThreshold = Config.getString("confRejectionThreshold");
 String maxNBest = Config.getString("maxNBest");
@@ -179,7 +180,7 @@ if(greetingAudio != null) {
             <log expr="'LENGTH = ' + MyArray.length"/>
             <log expr="'****LAST RESULT = ' + MyArray[0].interpretation.mainmenu"/>
             
-            <if cond="MyArray.length== 1">
+            <if cond="MyArray.length == 1">
                 
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'"/>
@@ -188,7 +189,7 @@ if(greetingAudio != null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-            <elseif cond="MyArray.length== 2"/>
+            <elseif cond="MyArray.length == 2"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'"/>
@@ -198,55 +199,57 @@ if(greetingAudio != null) {
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-            <elseif cond="MyArray.length= 3"/>
+            <elseif cond="MyArray.length == 3"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
                 + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'"/>
                 
-                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.MainMenu + ';'
+                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  
+                + MyArray[1].interpretation.mainmenu + ';'
                 + MyArray[2].interpretation.mainmenu + ';'"/>
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-            <elseif cond="MyArray.length= 4"/>
+            <elseif cond="MyArray.length == 4"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'"/>
                 
-                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.MainMenu + ';'
+                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           
+                + MyArray[1].interpretation.mainmenu + ';'
                 + MyArray[2].interpretation.mainmenu + ';'
                 + MyArray[3].interpretation.mainmenu + ';'"/>
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-            <elseif cond="MyArray.length= 5"/>
+            <elseif cond="MyArray.length == 5"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'
                 + MyArray[4].interpretation.mainmenu + '(' + MyArray[4].confidence + ');'"/>
                 
-                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.MainMenu + ';'
+                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.mainmenu + ';'
                 + MyArray[2].interpretation.mainmenu + ';'
                 + MyArray[3].interpretation.mainmenu + ';'
                 + MyArray[4].interpretation.mainmenu + ';'"/>
                 
                 <assign name="confirmation" expr="'0'"/>
                 
-            <elseif cond="MyArray.length= 6"/>
+            <elseif cond="MyArray.length == 6"/>
                 <assign name="nbestConf" expr="MyArray[0].confidence + ':'
                 + MyArray[0].interpretation.mainmenu + '(' + MyArray[0].confidence + ');'  	
                 + MyArray[1].interpretation.mainmenu + '(' + MyArray[1].confidence + ');'
-                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');
+                + MyArray[2].interpretation.mainmenu + '(' + MyArray[2].confidence + ');'
                 + MyArray[3].interpretation.mainmenu + '(' + MyArray[3].confidence + ');'
                 + MyArray[4].interpretation.mainmenu + '(' + MyArray[4].confidence + ');'
                 + MyArray[5].interpretation.mainmenu + '(' + MyArray[5].confidence + ');'"/>
                 
-                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.MainMenu + ';'
+                <assign name="nbest" expr="MyArray[0].interpretation.mainmenu + ';'  				     				           + MyArray[1].interpretation.mainmenu + ';'
                 + MyArray[2].interpretation.mainmenu + ';'
                 + MyArray[3].interpretation.mainmenu + ';'
                 + MyArray[4].interpretation.mainmenu + ';'
