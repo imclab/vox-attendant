@@ -453,8 +453,6 @@ public class MainController extends BaseController {
             }
         } else {
             // find all the matching contact beans
-        	System.out.println("FOOOOOOOOOOOOOOOOOOOOOO "+ contactBeanList.size());
-        	System.out.println("FOOOOOOOOOOOOOOOOOOOOOO "+ contactIds.length);
             List contactBeans = findContactBeanByIds(contactBeanList, contactIds);
             
             if (contactBeans.size() > MaxAllowableMatches) {

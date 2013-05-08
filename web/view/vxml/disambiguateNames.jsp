@@ -59,8 +59,7 @@ private boolean hasConflictInList(ContactBean contactBean, List contactBeans) {
 if(contactBeans != null) {
  %> 
  <form id="disambiguateContacts"> 
-     <field name="selection" slot="samename"> 
-         <grammar src="<%= grammarDir %>/SameName.xml" type="application/grammar-xml"/> 
+     <field name="selection" type="digits?length=1"> 
         
          <property name="com.nuance.core.client.NoSpeechTimeoutSecs" value="<%=timeout%>"/> 
         
@@ -70,7 +69,7 @@ if(contactBeans != null) {
                 
             	contactBean = (ContactBean)contactBeans.get(i);
              %> 
-             <audio src="<%=audioDir%>/<%=buildCountAudio(i+1)%>">Press or say...</audio> 
+             <audio src="<%=audioDir%>/<%=buildCountAudio(i+1)%>">Press or say <%=i+ 1 %> for</audio> 
              <attendant:audio type="contact" audiodir="<%=contactAudioDir%>"> 
                 <%=contactBean.getFirstname()%> <%=contactBean.getLastname()%> 
              </attendant:audio> 
@@ -147,8 +146,7 @@ if(contactBeans != null) {
 } else {
  %> 
  <form id="disambiguateEntities"> 
-     <field name="selection" slot="choice"> 
-         <grammar src="<%= grammarDir %>/SameName.xml" type="application/grammar-xml"/> 
+     <field name="selection" type="digits?length=1"> 
         
          <property name="com.nuance.core.client.NoSpeechTimeoutSecs" value="<%=timeout%>"/> 
         
@@ -157,7 +155,7 @@ if(contactBeans != null) {
             for(int i = 0; i < entityBeans.size(); i ++) {
                 entityBean = (EntityBean)entityBeans.get(i);
              %> 
-             <audio src="<%=audioDir%>/<%=buildCountAudio(i+1)%>">Press or say...</audio> 
+             <audio src="<%=audioDir%>/<%=buildCountAudio(i+1)%>">Press or say <%=i + 1 %> for</audio> 
              <attendant:audio type="entity" audiodir="<%=entityAudioDir%>"> 
                  <%=entityBean.getName()%> 
              </attendant:audio> 
